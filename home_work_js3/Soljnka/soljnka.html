@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Солянка</title>
+    <link rel="stylesheet" href="soljnka.css">
+</head>
+<body>
+<section>
+    <h1>Рецепт сборной солянки</h1>
+    <form>
+        <img src="produkty.png" alt="Сборная солянка">
+        <label for="meat">Мясо. гр.</label>
+        <input id="meat" type="#">
+        <label for="smoked">Мясные изделия. гр.</label>
+        <input id="smoked" type="#">
+        <label for="oil">Растительное масло. ст.л.</label>
+        <input id="oil" type="#">
+        <label for="garlic">Чеснок.зубчиков.шт.</label>
+        <input id="garlic" type="#">
+        <label for="onion">Луковица. шт.</label>
+        <input id="onion" type="#">
+        <label for="tomat">Томатная паста.ст.ложка</label>
+        <input id="tomat" type="#">
+        <label for="cucumber">Маринованные огурчики.шт.</label>
+        <input id="cucumber"type="#">
+        <div class="buttonN">
+            <button type="#" id="calculate" onclick="mainCalculate()">Расчитать</button>
+   </div>
+   <footer>
+       <dev class="img1">
+        <img src="soljnka.jpg">
+        </dev>
+        <h1>Приятного аппетита</h1>
+    </footer>
+</form>
+<script>
+    function mainCalculate() {
+    let meat = parseInt(document.getElementById('meat').value);
+    let smoked = parseInt(document.getElementById('smoked').value);
+    let oil = parseInt(document.getElementById('oil').value);
+    let garlic = parseInt(document.getElementById('garlic').value);
+    let onion = parseInt(document.getElementById('onion').value);
+    let tomat = parseInt(document.getElementById('tomat').value);
+    let cucumber = parseInt(document.getElementById('cucumber').value);
+    let soljnka = checkMeat(meat) + checkSmoked(smoked) + checkOil(oil) + checkGarlic(garlic) + checkOnion(onion) + checkTomat(tomat) + checkCucumber(cucumber);
+    
+    if (isNaN(meat) || isNaN(smoked) || isNaN(oil) || isNaN(garlic) || isNaN(onion) || isNaN(tomat) || isNaN(cucumber))
+    {
+    alert('Введите данные');
+    } else {
+        if (soljnka === '') {
+            alert('Приятного аппетита.' + '\n');
+            document.getElementById('Result').innerText = ('Приятного аппетита.' + '\n');
+        } else {alert(soljnka);
+            document.getElementById('Result').innerText = soljnka;
+        }
+     }
+    }
+
+function checkMeat(n) {
+    if (n < 450) 
+    {
+        return ('Мало мяса.' + '\n' + 'Добавить ' + (450 - n) + ' г. мяса.' + '\n');
+    } else if (n > 450) {
+        return ('Много мяса.' + '\n' + 'Уменьшить колчество мяса на ' + (n - 450) + ' г.' + '\n');
+    } else {
+        return '';
+    }
+}
+
+function checkSmoked(n) {
+    if (n < 300)
+     {
+        return ('Мало мясных изделий.' + '\n' + 'Добавить ' + (300 - n) + ' г. мясных изделий.' + '\n');
+    } else if (n > 300) {
+        return ('Много мясных изделий.' + '\n' + 'Уменьшить на ' + (n - 300) + ' г.' + '\n');
+    } else {
+        return '';
+    }
+}
+
+function checkOil(n) {
+    if (n < 2) 
+    {
+        return ('Мало подсолнечного масла.' + '\n' + 'Добавить ' + (2 - n) + ' ст.л. масла.' + '\n');
+    } else if (n > 2) {
+        return ('Много подсолнечного масла.' + '\n' + 'Уменьшить количество масла на ' + (n - 2) + ' ст.л.' + '\n');
+    } else {
+        return '';
+    }
+}
+
+function checkGarlic(n) {
+    if (n < 2) 
+    {
+        return ('Мало чеснока.' + '\n' + 'Добавить ' + (2 - n) + ' зубчиков.' + '\n');
+    } else if (n > 4) {
+        return ('Много чеснока.' + '\n' + 'Уменьшить чеснока на ' + (n - 4) + ' зубчиков.' + '\n');
+    } else {
+        return '';
+    }
+}
+
+function checkOnion(n) {
+    if (n < 1) 
+    {
+        return ('Мало лука.' + '\n' + 'Добавить ' + (1 - n) + ' луковцы.' + '\n');
+    } else if (n > 3) {
+        return ('Много лука.' + '\n' + 'Уменьшить на ' + (n - 1) + ' луковицу.' + '\n');
+    } else {
+        return '';
+    }
+}
+function checkTomat(n) {
+    if (n < 1)
+     {
+        return ('Мало пасты.' + '\n' + 'Добавить ' + (1 - n) + ' ложка.' + '\n');
+    } else if (n > 1) {
+        return ('Много пасты.' + '\n' + 'Уменьшить на ' + (n - 1) + ' ложки.' + '\n');
+    } else {
+        return '';
+    }
+}
+function checkCucumber(n)
+ {
+    if (n < 2) {
+        return ('Мало маринованных огурчиков.' + '\n' + 'Добавить ' + (2 - n) + ' огурчиков.' + '\n');
+    } else if (n > 4) {
+        return ('Много маринованных огурчиков.' + '\n' + 'Уменьшить на ' + (n - 4) + ' огурчика.' + '\n');
+    } else {
+        return '';
+    }
+}
+</script>
+</section>
+</body>
+</html>
